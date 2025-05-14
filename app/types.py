@@ -1,7 +1,7 @@
 import strawberry
 
 @strawberry.type
-class Query:
-    @strawberry.field
-    def hello(self) -> str:
-        return "Hello, world!"
+class User:
+    id: int
+    name: str
+    email: str
