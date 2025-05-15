@@ -1,6 +1,6 @@
 from .types import User
 from datetime import datetime, timedelta
-
+from .types import Sender
 
 mock_users = [
     User(id='1', name='Alice Johnson', email='alice.johnson@example.com'),
@@ -38,7 +38,7 @@ mock_history = [
         "createdAt": current_iso_datetime(),
         "messages": [
             {
-                "sender": "user",
+                "sender": Sender.USER.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -49,7 +49,7 @@ mock_history = [
                 ]
             },
             {
-                "sender": "bot",
+                "sender": Sender.BOT.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -67,7 +67,7 @@ mock_history = [
         "createdAt": yesterday_iso_datetime(),
         "messages": [
             {
-                "sender": "USER",
+                "sender": Sender.USER.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -78,7 +78,7 @@ mock_history = [
                 ]
             },
             {
-                "sender": "BOT",
+                "sender": Sender.BOT.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -91,7 +91,7 @@ mock_history = [
                 ]
             },
             {
-                "sender": "USER",
+                "sender": Sender.USER.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -102,7 +102,7 @@ mock_history = [
                 ]
             },
             {
-                "sender": "BOT",
+                "sender": Sender.BOT.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -122,7 +122,7 @@ mock_history = [
         "createdAt": "2024-05-08T10:00:00",
         "messages": [
             {
-                "sender": "user",
+                "sender": Sender.USER.value,
                 "text": [
                     {
                         "type": "paragraph",
@@ -133,7 +133,7 @@ mock_history = [
                 ]
             },
             {
-                "sender": "bot",
+                "sender": Sender.BOT.value,
                 "text": [
                     {
                         "type": "paragraph",
