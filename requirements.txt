@@ -2,4 +2,5 @@ fastapi
 strawberry-graphql[fastapi]
 uvicorn
 openai
-python-dotenv
+dotenv
+requests

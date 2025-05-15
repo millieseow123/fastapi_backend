@@ -1,4 +1,6 @@
 from .types import User
+from datetime import datetime, timedelta
+
 
 mock_users = [
     User(id='1', name='Alice Johnson', email='alice.johnson@example.com'),
@@ -21,4 +23,128 @@ mock_users = [
     User(id='18', name='Rachel Lim', email='rachel.lim@example.com'),
     User(id='19', name='Samir Desai', email='samir.desai@example.com'),
     User(id='20', name='Tina Chua', email='tina.chua@example.com'),
+]
+
+def current_iso_datetime():
+    return datetime.now().isoformat(timespec="seconds")
+def yesterday_iso_datetime():
+    return (datetime.now() - timedelta(days=1)).isoformat(timespec="seconds")
+
+
+mock_history = [
+      {
+        "id": "1",
+        "title": "Follow-up reply",
+        "createdAt": current_iso_datetime(),
+        "messages": [
+            {
+                "sender": "user",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {"text": "How to respond if boss says no?"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "sender": "bot",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {"text": "You can respond politely by saying: \"I understand your decision, and I appreciate your consideration. If there’s any way to revisit this request in the future, please let me know.\""}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Draft email for leave",
+        "createdAt": yesterday_iso_datetime(),
+        "messages": [
+            {
+                "sender": "USER",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {"text": "Can you write an email requesting for leave?"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "sender": "BOT",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "text": "Sure, I’ve updated the email. Here’s the revised draft:\nSubject: Request for Leave\nDear [Manager’s Name],\nI hope this email finds you well. I am writing to formally request leave from [start date] to [end date] due to medical reasons.\nI will ensure that all my responsibilities are handled before my leave, and I am happy to assist in any transition or handover process required.\nThank you for considering my request. Please let me know if you need any additional information.\nBest regards,\n[Your Name]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sender": "USER",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {"text": "Can you change the reason to \"medical reasons\"?"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "sender": "BOT",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "text": "Sure, I’ve updated the email. Here’s the revised draft:\nSubject: Request for Leave\nDear [Manager’s Name],\nI hope this email finds you well. I am writing to formally request leave from [start date] to [end date] due to medical reasons.\nI will ensure that all my responsibilities are handled before my leave, and I am happy to assist in any transition or handover process required.\nThank you for considering my request. Please let me know if you need any additional information.\nBest regards,\n[Your Name]"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Weekly report summary",
+        "createdAt": "2024-05-08T10:00:00",
+        "messages": [
+            {
+                "sender": "user",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {"text": "Can you summarize this week’s report?"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "sender": "bot",
+                "text": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "text": "Here is the summary of this week’s report:\n1. Project A: Completed the initial phase and delivered the first draft to the client.\n2. Team B: Resolved 95% of the reported bugs and improved system performance by 20%.\n3. Upcoming Tasks: Finalize the budget for Project C and prepare for the client presentation next week."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 ]
