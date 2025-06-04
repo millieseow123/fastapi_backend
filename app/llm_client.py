@@ -2,21 +2,24 @@ import requests
 import os
 from dotenv import load_dotenv
 
+from app.system_prompt import SYSTEM_PROMPT
+
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def get_chat_completion(prompt: str) -> str:
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": "http://localhost:3000",  # your frontend origin (important!)
-        "X-Title": "GoogleIntelligence",          # your app name (can be anything)
+        "HTTP-Referer": "http://localhost:3000",  
+        "X-Title": "Schedulo",         
         "Content-Type": "application/json",
     }
 
     body = {
-        "model": "anthropic/claude-3-sonnet-20240229",  # You can change to gpt-4, mixtral, etc.
+        "model": "openai/gpt-4.1",
         "messages": [
-            {"role": "user", "content": prompt}
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": prompt},    
         ],
         "max_tokens": 1000 
     }
